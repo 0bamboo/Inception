@@ -1,3 +1,66 @@
-version: '3'
+version: '3.5'
 services:
-  wordpress:
+ nginx:
+  networks:
+   - inception_network
+  image: nginx
+  restart: always
+  depends_on:
+   - wordpress
+   - mariadb
+  container_name: nginx
+  build: ./requirements/nginx/
+  ports:
+   - 443:443
+  volumes:
+   - myapp:/var/www/html
+ 
+ mariadb:
+  networks:
+   - inception_network
+  image: mariadb
+  container_name: mariadb
+  build: ./requirements/mariadb/
+  ports:
+   - 3306:3306
+  volumes:
+   - db:/var/lib/mysql
+  env_file:
+   - .env
+
+ wordpress:
+  networks:
+   - inception_network
+  image: wordpress
+  restart: always
+  container_name: wordpress
+  depends_on:
+   - mariadb
+  ports:
+   - 9000:9000
+  build: ./requirements/wordpress/
+  volumes:
+   - myapp:/var/www/html/
+  env_file:
+   - .env
+
+
+volumes:
+ myapp:
+  driver: local
+  driver_opts:
+   type: 'none'
+   o: bind
+   device: /home/abdait-m/data/wp
+ db:
+  driver: local
+  driver_opts:
+   type: 'none'
+   o: bind
+   device: /home/abdait-m/data/db
+
+
+networks:
+ inception_network:
+  name: 'inception_network'
+  driver: bridge

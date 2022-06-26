@@ -1,0 +1,5 @@
+
+CREATE DATABASE IF NOT EXISTS `abdait-m`;
+CREATE USER IF NOT EXISTS 'abdait-m'@'%' IDENTIFIED BY 'abdait-m';
+GRANT ALL PRIVILEGES ON `abdait-m`.* TO 'abdait-m'@'%';
+FLUSH PRIVILEGES;
