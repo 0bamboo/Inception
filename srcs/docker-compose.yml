@@ -43,6 +43,40 @@ services:
    - myapp:/var/www/html/
   env_file:
    - .env
+   
+ adminer:
+    networks:
+      - inception_network
+    image: adminer
+    restart: always
+    container_name: adminer
+    depends_on:
+      - mariadb
+    ports:
+      - 8080:80
+    build: ./requirements/bonus/adminer/
+    env_file:
+      - .env
+ redis:
+    restart: always
+    depends_on:
+      - wordpress
+    networks:
+      - inception_network
+    image: redis
+    container_name: redis
+    build: ./requirements/bonus/redis/
+    ports:
+      - 6379:6379
+ website:
+    restart: always
+    networks:
+      - inception_network
+    image: website
+    build: ./requirements/bonus/website/
+    container_name: website
+    ports:
+      - 3000:3000
 
 
 volumes:
@@ -52,12 +86,14 @@ volumes:
    type: 'none'
    o: bind
    device: /home/abdait-m/data/wp
+  #  device: /Users/abdait-m/data/wp
  db:
   driver: local
   driver_opts:
    type: 'none'
    o: bind
    device: /home/abdait-m/data/db
+  #  device: /Users/abdait-m/data/db
 
 
 networks:

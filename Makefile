@@ -6,11 +6,11 @@
 #    By: abdait-m <abdait-m@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 23:35:38 by abdait-m          #+#    #+#              #
-#    Updated: 2022/06/26 16:26:48 by abdait-m         ###   ########.fr        #
+#    Updated: 2022/06/27 13:38:30 by abdait-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SERVICES = wordpress nginx mariadb adminer redis ftp website
+SERVICES = wordpress nginx mariadb adminer redis website
 
 DCMP = srcs/docker-compose.yml
 
