@@ -35,6 +35,6 @@
         https://DOMAIN_NAME:PORT
 
 ## Here is an exmaple diagram of the expected result
-![Alt text](https://github.com/nowl01/Inception/sub/result.png)
+![Alt text](https://github.com/nowl01/Inception/blob/master/sub/result.png)
 
-[1]: https://github.com/nowl01/Inception/sub/inception.en.subject.pdf
+[1]: https://github.com/nowl01/Inception/blob/master/sub/inception.en.subject.pdf
