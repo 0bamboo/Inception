@@ -14,7 +14,7 @@
 
 1. Download/Clone this repo
 
-        git clone https://github.com/Pyt45/Inception
+        git clone https://github.com/nowl01/Inception
 
 2. `cd` into the root direcotry and run `make up` to run the the app or `make detach` to run in foreground mode
 
